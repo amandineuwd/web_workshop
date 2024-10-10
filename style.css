@@ -1,3 +1,4 @@
+/*
 * {
     margin: 0;
     padding: 0;
@@ -84,4 +85,48 @@ body {
     .left {
         order: 1;
     }
+}
+*/
+
+body {
+    background-color: #FFCBDD; /* Fairy Tale */
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+h1 {
+    color: #3E000C; /* Chocolate cosmos */
+}
+
+.container {
+    margin-top: 50px;
+}
+
+button {
+    background-color: #FB4B4E; /* Imperial red */
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #7C0B2B; /* Claret */
+}
+
+input[type=range] {
+    width: 80%;
+    margin: 20px;
+}
+
+.temp-container {
+    background-color: #C5305A; /* Rose red */
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    font-size: 24px;
 }
