@@ -1,91 +1,37 @@
-<!-- CODE PROF
- 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="style.css" />
-    <link rel="preconnect" href="style.css" />
-    <link 
-        href="" 
-        rel=""
-    />
-</head>
-<body>
-    <div class="bulle">
-        
-    </div>
-    <div class="header">Header</div>
-    <div class="content">
-        <div class="main">Main</div>
-        <div class="left">Left</div>
-        <div class="right">Right</div>
-    </div>
-    <div class="footer">Footer</div>
-</body>
-</html> -->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ESP32 Control Panel</title>
+    <title>ESP32 Control Interface</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>ESP32 Control Panel</h1>
     <div class="container">
-        <!-- Allumer/Eteindre LED -->
-        <button id="toggleLED">Allumer/Éteindre la LED</button>
-        
-        <!-- Contrôle de l'intensité lumineuse -->
-        <label for="brightness">Intensité Lumineuse</label>
-        <input type="range" id="brightness" min="0" max="255">
+        <button id="toggleLed">ON/OFF LED</button>
 
-        <!-- Changement de couleur LED RGB -->
-        <button id="changeColor">Changer Couleur LED RGB</button>
-
-        <!-- STOP (Réinitialisation) -->
-        <button id="stop">STOP (Réinitialiser tout)</button>
-
-        <!-- Affichage de la température -->
-        <div class="temp-container">
-            <label>Température actuelle :</label>
-            <div id="temperature">0°C</div>
+        <div class="gauge">
+            <label for="brightness">Light Intensity</label>
+            <input type="range" id="brightness" min="0" max="255" step="1">
         </div>
+
+        <div class="color-picker">
+            <label for="rgb">RGB Color</label>
+            <select id="rgb">
+                <option value="blue">Blue</option>
+                <option value="yellow">Yellow</option>
+                <option value="red">Red</option>
+            </select>
+        </div>
+
+        <div class="temperature">
+            <label for="temp">Temperature</label>
+            <div id="tempDisplay">-- °C</div>
+        </div>
+
+        <button id="reset">STOP</button>
     </div>
 
-    <script>
-        const socket = new WebSocket('ws://192.168.4.1:81'); // Assure-toi d'utiliser l'adresse IP correcte pour ton ESP32
-
-        // Allumer/Eteindre la LED
-        document.getElementById('toggleLED').addEventListener('click', function() {
-            socket.send('toggleLED');
-        });
-
-        // Contrôle de l'intensité lumineuse
-        document.getElementById('brightness').addEventListener('input', function() {
-            socket.send('brightness:' + this.value);
-        });
-
-        // Changement de couleur LED RGB
-        document.getElementById('changeColor').addEventListener('click', function() {
-            socket.send('changeColor');
-        });
-
-        // STOP (Réinitialiser tout)
-        document.getElementById('stop').addEventListener('click', function() {
-            socket.send('stop');
-        });
-
-        // Afficher la température
-        socket.onmessage = function(event) {
-            document.getElementById('temperature').innerText = event.data + '°C';
-        };
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
