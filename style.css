@@ -54,8 +54,8 @@ input[type="range"] {
         flex-direction: column;
     }
 }
-/*
-#mousePointer {
+
+/*#mousePointer {
     position: absolute;
     width: 15px;
     height: 15px;
