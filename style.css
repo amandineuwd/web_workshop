@@ -54,3 +54,12 @@ input[type="range"] {
         flex-direction: column;
     }
 }
+/*
+#mousePointer {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    border-radius: 50%;
+    pointer-events: none; Permet de ne pas interférer avec les clics de la page
+}*/
